@@ -1,0 +1,21 @@
+[Unit]
+Description=3D Man Box / Club (Next.js)
+After=network.target
+
+[Service]
+Type=simple
+User=deploy
+Group=deploy
+WorkingDirectory=/srv/3dmanbox/current
+Environment=NODE_ENV=production
+Environment=PORT=3030
+Environment=HOSTNAME=127.0.0.1
+EnvironmentFile=/srv/3dmanbox/shared/.env
+ExecStart=/usr/bin/npm start
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:/var/log/3dmanbox/out.log
+StandardError=append:/var/log/3dmanbox/err.log
+
+[Install]
+WantedBy=multi-user.target

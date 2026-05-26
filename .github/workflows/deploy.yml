@@ -1,0 +1,47 @@
+name: Deploy 3dmanbox
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: SSH deploy
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: 204.168.189.74
+          username: deploy
+          key: ${{ secrets.PACT_SSH_KEY }}
+          script: |
+            set -euo pipefail
+            BASE=/srv/3dmanbox
+            RELEASES=$BASE/releases
+            SHARED=$BASE/shared
+            CURRENT=$BASE/current
+            TS=$(date +%Y%m%d_%H%M%S)
+            RELEASE=$RELEASES/$TS
+
+            mkdir -p "$RELEASES"
+            git clone --depth 1 https://github.com/mclac2000/3dmanbox.git "$RELEASE"
+
+            cd "$RELEASE"
+            ln -sf "$SHARED/.env" ".env.production.local"
+
+            npm ci
+            npm run build
+
+            ln -sfn "$RELEASE" "$CURRENT"
+
+            sudo systemctl restart 3dmanbox
+
+            cd "$RELEASES"
+            ls -1t | tail -n +6 | xargs -r rm -rf
+
+            echo "✓ Released $TS"
