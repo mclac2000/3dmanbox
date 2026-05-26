@@ -1,214 +1,95 @@
 import Link from "next/link";
-import { Section } from "@/components/ui/Section";
-import { Badge } from "@/components/ui/Badge";
-import { ButtonLink } from "@/components/ui/Button";
-import { Check, Sparkles, Zap, Box } from "@/components/ui/Icon";
-import { TRUST } from "@/lib/site";
-import { formatNumber } from "@/lib/utils";
+import Image from "next/image";
+import { getDict, getLocale } from "@/lib/i18n";
+import { getCategories, getCategory } from "@/lib/gallery";
+import { PRICING } from "@/lib/site";
 
-export const metadata = {
-  title: "3D Man Club — Dein KI-Studio für unbegrenzte 3D-Charaktere",
-  description:
-    "Generiere, kuratiere und teile professionelle 3D-Charaktere für Marketing, Produkte und Inhalte — von der Master-Box bis zur unbegrenzten KI-Generierung.",
-};
+export default async function ClubHome() {
+  const locale = await getLocale();
+  const dict = await getDict(locale);
+  const cats = await getCategories();
+  const featured = await Promise.all(cats.slice(0, 4).map((c) => getCategory(c.slug)));
 
-const previewChars = [
-  "👨‍💼","👩‍💻","🧑‍⚕️","👨‍🏫","👩‍🔬","🧑‍🎨","👨‍🚀","👩‍🍳",
-  "🧑‍✈️","👨‍🌾","👩‍🚒","🧑‍🔧","👨‍🎤","👩‍🎓","🧑‍💼","👨‍🦰",
-];
-
-export default function ClubHome() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-gradient text-white">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-gold-400/20 blur-3xl" />
-        </div>
-        <div className="container-wide relative py-20 md:py-28">
-          <div className="mx-auto max-w-3xl text-center">
-            <Badge variant="gold" className="bg-gold-400/10 border-gold-400/30 text-gold-200">
-              3D Man Club · Members Hub
-            </Badge>
-            <h1 className="h-display mt-5 text-4xl text-white md:text-6xl">
-              Dein <span className="bg-gold-shine bg-clip-text text-transparent">KI-Studio</span> für unbegrenzte 3D-Charaktere
+      <section className="relative overflow-hidden bg-zinc-950 text-white">
+        <div className="bg-grid absolute inset-0 opacity-10" aria-hidden />
+        <div className="wrap relative grid items-center gap-12 py-20 lg:grid-cols-2">
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-wider text-accent-300">3dman.club</p>
+            <h1 className="font-display mt-3 text-4xl leading-[1.05] md:text-6xl">
+              {dict.club.heroTitle}
             </h1>
-            <p className="mt-6 text-lg text-navy-100 md:text-xl">
-              Generiere, kuratiere und teile professionelle Charaktere — passend zu deinem Stil, deiner Marke und deinem Projekt. Kostenlos starten, mit Credits skalieren.
-            </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <ButtonLink href="/pricing" variant="gold" size="xl">
-                Kostenlos starten
-              </ButtonLink>
-              <ButtonLink href="https://3dmanbox.com" external variant="outline" size="xl" className="border-white text-white hover:bg-white hover:text-navy-900">
-                Master Box für 197€
-              </ButtonLink>
+            <p className="mt-5 max-w-md text-zinc-300">{dict.club.heroSubtitle}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/club/pricing"
+                className="inline-flex items-center gap-2 rounded-full bg-accent-300 px-6 py-3.5 text-sm font-semibold text-zinc-950 transition hover:bg-accent-400"
+              >
+                {dict.club.heroCta}
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.75" />
+                </svg>
+              </Link>
+              <a
+                href="https://3dmanbox.com"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Browse the gallery
+              </a>
             </div>
-            <p className="mt-4 text-xs text-navy-300">
-              Keine Kreditkarte nötig · 10 KI-Credits Start-Guthaben
-            </p>
           </div>
 
-          {/* Char Grid */}
-          <div className="mt-16">
-            <div className="grid grid-cols-4 gap-3 md:grid-cols-8">
-              {previewChars.map((c, i) => (
-                <div
-                  key={i}
-                  className="aspect-square rounded-xl bg-white/5 ring-1 ring-white/10 backdrop-blur grid place-items-center text-3xl md:text-4xl"
-                >
-                  {c}
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-2 gap-3">
+            {featured.flatMap((cat, i) =>
+              cat
+                ? cat.images.slice(0, i === 0 ? 4 : 2).map((img, j) => (
+                    <div
+                      key={`${cat.slug}-${j}`}
+                      className="relative aspect-square overflow-hidden rounded-xl bg-white/5 ring-1 ring-white/10"
+                    >
+                      <Image src={`/gallery/${cat.slug}/${img.file}`} alt="" fill sizes="180px" className="object-contain p-3" />
+                    </div>
+                  ))
+                : [],
+            )}
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <Section background="white" className="py-12">
-        <div className="container-wide">
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-            {[
-              { label: "Aktive Mitglieder", value: `${formatNumber(TRUST.customers)}+` },
-              { label: "Charaktere generiert", value: `${formatNumber(TRUST.totalGenerations)}+` },
-              { label: "Länder", value: TRUST.countries },
-              { label: "Ø Bewertung", value: `${TRUST.averageRating}/5` },
-            ].map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="font-display text-3xl font-bold text-navy-900 md:text-4xl">
-                  {s.value}
+      <section className="wrap py-20">
+        <h2 className="font-display text-3xl text-zinc-950 md:text-5xl">{dict.value.title}</h2>
+        <ul className="mt-10 grid gap-px overflow-hidden rounded-2xl bg-zinc-200 ring-1 ring-zinc-200 sm:grid-cols-2 lg:grid-cols-3">
+          {(["ai", "scale", "royaltyFree", "hiRes", "instant", "support"] as const).map((key, i) => {
+            const it = dict.value.items[key];
+            const labels = ["AI", "▣", "∞", "8K", "↓", "60d"];
+            return (
+              <li key={key} className="bg-white p-6 md:p-8">
+                <div className="grid h-10 w-10 place-items-center rounded-lg bg-accent-100 font-mono text-sm font-semibold text-accent-700">
+                  {labels[i]}
                 </div>
-                <div className="mt-1 text-sm text-navy-500">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
+                <h3 className="font-display mt-4 text-xl text-zinc-950">{it.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-600">{it.body}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
 
-      {/* Features */}
-      <Section background="soft">
-        <div className="container-base">
-          <div className="mx-auto max-w-3xl text-center">
-            <Badge variant="gold">Was du im Club bekommst</Badge>
-            <h2 className="h-display mt-5 text-3xl text-navy-900 md:text-5xl">
-              Vom statischen Bestand bis zur unbegrenzten KI-Generierung
-            </h2>
-          </div>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                icon: <Box size={24} />,
-                title: "Master-Galerie",
-                text: "Browse durch 1.000+ kuratierte Charaktere. Filter nach Kategorie, Stil, Alter, Outfit.",
-                color: "bg-navy-100 text-navy-700",
-              },
-              {
-                icon: <Sparkles size={24} />,
-                title: "KI-Generator",
-                text: "Beschreibe deinen Wunsch-Charakter in einem Satz — und bekomme in 30 Sekunden 4 Variationen.",
-                color: "bg-gold-100 text-gold-700",
-              },
-              {
-                icon: <Zap size={24} />,
-                title: "Custom-LoRA",
-                text: "Trainiere unsere KI auf deinen eigenen Stil — und generiere unbegrenzt im Markendesign.",
-                color: "bg-emerald-100 text-emerald-700",
-              },
-            ].map((f) => (
-              <div key={f.title} className="rounded-2xl bg-white p-7 shadow-soft">
-                <div className={`grid h-12 w-12 place-items-center rounded-full ${f.color}`}>
-                  {f.icon}
-                </div>
-                <h3 className="mt-5 font-display text-xl font-semibold text-navy-900">
-                  {f.title}
-                </h3>
-                <p className="mt-3 text-[15px] text-navy-600">{f.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* Tiered Pitch */}
-      <Section background="white">
-        <div className="container-base">
-          <div className="grid items-center gap-12 md:grid-cols-2">
-            <div>
-              <Badge variant="gold">Master Box + Club</Badge>
-              <h2 className="h-display mt-5 text-3xl text-navy-900 md:text-4xl">
-                Einmal die Box. Lebenslang Zugriff. Optional unbegrenzt mit KI.
-              </h2>
-              <p className="mt-5 text-navy-700">
-                Mit dem Kauf der 3D Man Box bekommst du automatisch einen Club-Account inklusive 100 KI-Credits. Wenn du mehr willst, upgrade jederzeit auf ein Credit-Paket — oder bleib auf Pay-As-You-Go.
-              </p>
-              <ul className="mt-6 space-y-3">
-                {[
-                  "1.000+ Premium-Charaktere zum Sofort-Download",
-                  "100 KI-Generierungen Start-Guthaben",
-                  "Web-Galerie mit Such- und Filterfunktionen",
-                  "Lebenslange kommerzielle Lizenz",
-                ].map((line) => (
-                  <li key={line} className="flex items-start gap-2 text-navy-700">
-                    <Check size={20} className="mt-0.5 shrink-0 text-emerald-600" />
-                    <span>{line}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <ButtonLink href="https://3dmanbox.com" external variant="gold" size="lg">
-                  Master Box für 197€
-                </ButtonLink>
-                <ButtonLink href="/pricing" variant="outline" size="lg">
-                  Nur Club-Plan ansehen
-                </ButtonLink>
-              </div>
-            </div>
-            <div className="rounded-2xl bg-navy-gradient p-7 text-white md:p-10">
-              <h3 className="font-display text-2xl font-semibold">Live-Beispiel</h3>
-              <p className="mt-2 text-sm text-navy-200">
-                So fragt unser KI-Studio nach deinem Wunsch-Charakter:
-              </p>
-              <div className="mt-5 rounded-xl bg-black/30 p-4 ring-1 ring-white/10">
-                <code className="text-sm text-gold-200">
-                  „Ein freundlicher Software-Engineer Anfang 30, lockere Brille, dunkelblauer Pullover, hält ein Notebook unter dem Arm."
-                </code>
-              </div>
-              <div className="mt-4 text-xs text-navy-300">→ Generiert in 28 Sekunden · 4 Variationen · 1 Credit pro Generierung</div>
-              <div className="mt-6 grid grid-cols-4 gap-2">
-                {["🧑‍💻","👨‍💻","👩‍💻","🧑‍💼"].map((e, i) => (
-                  <div
-                    key={i}
-                    className="aspect-square rounded-lg bg-white/5 ring-1 ring-white/10 grid place-items-center text-3xl"
-                  >
-                    {e}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* CTA */}
-      <Section background="navy" className="py-16">
-        <div className="container-base text-center">
-          <h2 className="h-display text-3xl text-white md:text-5xl">
-            Bereit, deinen visuellen Standard zu heben?
+      <section className="wrap pb-20">
+        <div className="rounded-3xl bg-zinc-950 px-6 py-14 text-white md:px-12">
+          <p className="font-mono text-[10px] uppercase tracking-wider text-accent-300">Or buy the static pack</p>
+          <h2 className="font-display mt-3 text-3xl md:text-5xl">
+            {PRICING.masterBox.price}€ · one payment · all 15,000 renders.
           </h2>
-          <p className="mt-5 text-lg text-navy-100">
-            Starte kostenlos mit 10 Credits — oder hol dir die Master Box samt 100 Credits für einmalig 197€.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <ButtonLink href="/pricing" variant="gold" size="xl">
-              Kostenlos starten
-            </ButtonLink>
-            <Link href="https://3dmanbox.com" className="text-sm font-semibold text-gold-300 underline">
-              → oder Master Box für 197€
-            </Link>
-          </div>
+          <a
+            href="https://3dmanbox.com"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent-300 px-6 py-3.5 text-sm font-semibold text-zinc-950 transition hover:bg-accent-400"
+          >
+            Visit 3dmanbox.com
+          </a>
         </div>
-      </Section>
+      </section>
     </>
   );
 }

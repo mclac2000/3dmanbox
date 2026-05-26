@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "title": "3D Man Box — 15.000+ Premium 3D-Charaktere",
+    "description": "Die größte 3D-Charakter-Bibliothek im Netz für Präsentationen, Webseiten, Marketing & Social. Lizenzfrei. 2.300+ Kreative in 38 Ländern."
+  },
+  "nav": {
+    "gallery": "Galerie",
+    "categories": "Kategorien",
+    "pricing": "Preise",
+    "club": "Club",
+    "tryAi": "KI testen",
+    "donate": "Spenden",
+    "login": "Anmelden",
+    "menu": "Menü"
+  },
+  "hero": {
+    "badge": "15.000+ Renderings · lizenzfrei · sofort verfügbar",
+    "title": "Die größte 3D-Charakter-Bibliothek im Netz.",
+    "titleAccent": "Hör auf zu suchen. Fang an zu liefern.",
+    "subtitle": "Über Pixabay gefunden? Willkommen. Hier ist die komplette Sammlung: 15.000 hochaufgelöste 3D-Charaktere in 10 Kategorien — bereit für deine Decks, Webseiten und Anzeigen.",
+    "ctaPrimary": "Galerie ansehen",
+    "ctaSecondary": "KI gratis testen",
+    "stats": {
+      "renders": "Renderings",
+      "categories": "Kategorien",
+      "creators": "Kreative vertrauen uns",
+      "countries": "Länder"
+    }
+  },
+  "categories": {
+    "title": "10 Kategorien. Wähl eine — oder hol dir alle.",
+    "subtitle": "Jede Kategorie ist einzeln erhältlich. Stöbere und entscheide dann.",
+    "viewAll": "Alle Bilder ansehen",
+    "imagesIn": "Bilder in",
+    "buy": "Diese Box kaufen",
+    "names": {
+      "business": "Business",
+      "sport": "Sport",
+      "wellness": "Wellness",
+      "family": "Familie",
+      "travel": "Reisen",
+      "food": "Essen",
+      "events": "Events",
+      "tech": "Tech",
+      "education": "Bildung",
+      "animals": "Tiere"
+    },
+    "descriptions": {
+      "business": "Führungskräfte, Vertrieb, Finanzen, Meetings — die Sprache der Arbeit.",
+      "sport": "Spieler, Training, Ausrüstung, Siegerposen.",
+      "wellness": "Gesundheit, Achtsamkeit, Fitness, Balance.",
+      "family": "Eltern, Kinder, Paare, Feiern.",
+      "travel": "Tourismus, Hotels, Verkehr, Abenteuer.",
+      "food": "Kochen, Essen, Einkauf, Getränke.",
+      "events": "Konferenzen, Partys, Feiertage, Auftritte.",
+      "tech": "Computer, Software, KI, Social Media.",
+      "education": "Studenten, Unterricht, Bücher, Sprachen.",
+      "animals": "Haustiere, Wildtiere, Bauernhof — überall Tiere."
+    }
+  },
+  "gallery": {
+    "title": "Die Galerie",
+    "subtitle": "Wähl eine Kategorie und sieh dir alle Bilder an.",
+    "back": "← Zurück zu allen Kategorien",
+    "buyCta": "{category}-Box holen — {price}",
+    "showAll": "Alle {count} anzeigen",
+    "loadMore": "Mehr laden"
+  },
+  "try": {
+    "title": "Erstelle einen 3D-Charakter mit KI.",
+    "subtitle": "Ein gratis Versuch, ohne Anmeldung. Beschreib was du brauchst. Der Download benötigt einen Club-Account.",
+    "promptLabel": "Beschreib deinen Charakter",
+    "promptPlaceholder": "Ein freundlicher 3D-Charakter mit Laptop, lächelnd",
+    "generate": "Generieren",
+    "generating": "Generiere…",
+    "result": "Dein Bild",
+    "downloadNeedsClub": "Download benötigt Club-Mitgliedschaft",
+    "joinClub": "Tritt dem Club bei und lade herunter",
+    "tryAgain": "Anderen Prompt probieren",
+    "limitReached": "Dein gratis Versuch ist verbraucht. Tritt dem Club bei für unbegrenzte Generierungen.",
+    "error": "Etwas ist schiefgelaufen. Versuch's gleich nochmal."
+  },
+  "value": {
+    "title": "Warum Kreative 3D Man Box wählen",
+    "items": {
+      "scale": {
+        "title": "15.000+ fertige Renderings",
+        "body": "Mehr als jedes andere 3D-Charakter-Pack auf dem Markt. Schluss mit endlosem Suchen."
+      },
+      "royaltyFree": {
+        "title": "Lizenzfrei, für immer",
+        "body": "Einmal zahlen. In jedem Projekt nutzen, kommerziell oder privat. Kein Abo-Zwang."
+      },
+      "hiRes": {
+        "title": "8K-Quelldateien",
+        "body": "Jedes Bild ist 8000 × 8000 PNG mit Transparenz. Skaliert überall, nie unscharf."
+      },
+      "ai": {
+        "title": "KI-Generator inklusive",
+        "body": "Keine passende Pose? Erstell on-demand individuelle Variationen."
+      },
+      "support": {
+        "title": "60 Tage Geld-zurück",
+        "body": "Pack risikofrei testen. Nicht begeistert? Komplette Rückerstattung, keine Fragen."
+      },
+      "instant": {
+        "title": "Sofort-Download",
+        "body": "Bezahlen → herunterladen. Kein Warten. Über 3 CDNs verteilt."
+      }
+    }
+  },
+  "donate": {
+    "title": "Gefällt dir was wir machen?",
+    "body": "Viele von euch haben uns über Pixabays Gratis-Downloads gefunden. Wenn unsere Arbeit dir hilft, hält eine kleine Spende die Bibliothek am Wachsen.",
+    "amounts": ["3", "9", "27", "99"],
+    "custom": "Eigener Betrag",
+    "cta": "{amount}€ spenden",
+    "thanks": "Danke! Jeder Beitrag finanziert die nächste Charge an Renderings."
+  },
+  "pricing": {
+    "title": "Zwei Wege zu den Renderings",
+    "subtitle": "Hol das statische Pack einmalig. Füg KI-Credits hinzu, falls du unendliche Variationen willst.",
+    "static": "Statisches Pack",
+    "ai": "AI Club",
+    "perMonth": "/Mo",
+    "oneTime": "einmalig",
+    "popular": "Beliebteste",
+    "masterTitle": "Master-Box",
+    "masterTagline": "Alle 15.000+ Renderings · 10 Kategorien · lebenslang",
+    "buyMaster": "Master-Box holen",
+    "buyCategory": "Diese Kategorie holen",
+    "joinClub": "Club beitreten",
+    "categoryBoxes": "Oder Kategorien einzeln kaufen",
+    "vatNote": "Preise inkl. MwSt., wo zutreffend."
+  },
+  "footer": {
+    "tagline": "Die größte 3D-Charakter-Bibliothek im Netz.",
+    "product": "Produkt",
+    "company": "Unternehmen",
+    "legal": "Rechtliches",
+    "links": {
+      "gallery": "Galerie",
+      "pricing": "Preise",
+      "tryAi": "KI-Generator",
+      "club": "Mitgliedschaft",
+      "donate": "Spenden",
+      "about": "Über uns",
+      "contact": "Kontakt",
+      "imprint": "Impressum",
+      "privacy": "Datenschutz",
+      "terms": "AGB"
+    },
+    "fromPixabay": "Über Pixabay gefunden? Hol dir hier die komplette Sammlung.",
+    "rights": "© 3D Man Box. Alle Renderings © Hero Dreams LLC."
+  },
+  "club": {
+    "heroTitle": "Der Club: KI-gestützte 3D-Charaktere auf Knopfdruck.",
+    "heroSubtitle": "Du hast die Box? Upgrade auf unbegrenzte individuelle Variationen mit unserer LoRA-trainierten KI.",
+    "heroCta": "Gratis testen"
+  },
+  "common": {
+    "loading": "Lädt…",
+    "soon": "Demnächst",
+    "free": "Gratis"
+  }
+}

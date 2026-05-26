@@ -1,13 +1,27 @@
-import { redirect } from "next/navigation";
-import { headers } from "next/headers";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+import { HeroMosaic } from "@/components/box/HeroMosaic";
+import { MarqueeStrip } from "@/components/box/MarqueeStrip";
+import { CategoriesGrid } from "@/components/box/CategoriesGrid";
+import { ValueGrid } from "@/components/box/ValueGrid";
+import { MasterCTA } from "@/components/box/MasterCTA";
+import { TryAITeaser } from "@/components/box/TryAITeaser";
+import { DonateBanner } from "@/components/box/DonateBanner";
 
-// Fallback root — proxy.ts handles routing for production hosts.
-// Locally without host-aware proxy, send everyone to the club homepage.
-export default async function RootRedirect() {
-  const h = await headers();
-  const host = (h.get("host") || "").toLowerCase();
-  if (host.includes("3dmanbox") || host.startsWith("box.")) {
-    redirect("/box");
-  }
-  redirect("/club");
+export default function Home() {
+  return (
+    <>
+      <SiteHeader />
+      <main className="flex-1">
+        <HeroMosaic />
+        <MarqueeStrip />
+        <CategoriesGrid />
+        <ValueGrid />
+        <MasterCTA />
+        <TryAITeaser />
+        <DonateBanner />
+      </main>
+      <SiteFooter />
+    </>
+  );
 }

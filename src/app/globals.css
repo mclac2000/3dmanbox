@@ -1,38 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors */
-  --color-navy-50: #f0f4fa;
-  --color-navy-100: #d8e2f0;
-  --color-navy-200: #b1c5e1;
-  --color-navy-300: #6f8db9;
-  --color-navy-400: #3d5e8c;
-  --color-navy-500: #1f3a68;
-  --color-navy-600: #182d52;
-  --color-navy-700: #11213d;
-  --color-navy-800: #0a1428;
-  --color-navy-900: #050a17;
+  /* Neutral palette — modern, minimalist */
+  --color-ink-50: #fafafa;
+  --color-ink-100: #f4f4f5;
+  --color-ink-200: #e4e4e7;
+  --color-ink-300: #d4d4d8;
+  --color-ink-400: #a1a1aa;
+  --color-ink-500: #71717a;
+  --color-ink-600: #52525b;
+  --color-ink-700: #3f3f46;
+  --color-ink-800: #27272a;
+  --color-ink-900: #18181b;
+  --color-ink-950: #09090b;
 
-  --color-gold-50: #fdf8e7;
-  --color-gold-100: #f9eab8;
-  --color-gold-200: #f3d77e;
-  --color-gold-300: #ecc24a;
-  --color-gold-400: #d9a826;
-  --color-gold-500: #b8881b;
-  --color-gold-600: #8e6814;
-  --color-gold-700: #69500f;
+  /* Single accent — electric green/lime, technical & energetic */
+  --color-accent-50: #f3fee7;
+  --color-accent-100: #e2fdc4;
+  --color-accent-200: #c8fa91;
+  --color-accent-300: #a3f053;
+  --color-accent-400: #84e022;
+  --color-accent-500: #66c41a;
+  --color-accent-600: #4d9b13;
+  --color-accent-700: #3d7414;
+  --color-accent-800: #335c16;
+  --color-accent-900: #2c4d18;
 
   --color-background: #ffffff;
-  --color-foreground: #11213d;
-  --color-muted: #6b7785;
+  --color-foreground: #09090b;
 
   --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: var(--font-fraunces), "Fraunces", Georgia, serif;
-
-  /* Shadows */
-  --shadow-soft: 0 4px 24px -4px rgb(17 33 61 / 0.08);
-  --shadow-card: 0 10px 40px -10px rgb(17 33 61 / 0.18);
-  --shadow-glow: 0 0 0 1px rgb(217 168 38 / 0.3), 0 8px 32px -8px rgb(217 168 38 / 0.35);
+  --font-display: var(--font-grotesk), "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
 }
 
 html {
@@ -45,50 +44,91 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
 }
 
-/* Container */
-.container-narrow {
-  max-width: 768px;
-  margin-inline: auto;
-  padding-inline: 1.25rem;
+/* Display type */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  font-weight: 600;
 }
-.container-base {
-  max-width: 1120px;
-  margin-inline: auto;
-  padding-inline: 1.25rem;
+.font-mono {
+  font-family: var(--font-mono);
 }
-.container-wide {
+
+/* Containers */
+.wrap {
   max-width: 1280px;
   margin-inline: auto;
   padding-inline: 1.25rem;
 }
-
-/* Typo Utility */
-.h-display {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
+.wrap-tight {
+  max-width: 960px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+.wrap-narrow {
+  max-width: 720px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
 }
 
-/* Subtle gradient */
-.bg-navy-gradient {
-  background: linear-gradient(180deg, #0a1428 0%, #11213d 60%, #182d52 100%);
+/* Grid noise / dotted */
+.bg-dotted {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
-.bg-gold-shine {
-  background: linear-gradient(135deg, #d9a826 0%, #ecc24a 50%, #d9a826 100%);
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
-/* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+/* Masonry-style gallery via CSS columns */
+.col-gallery {
+  column-count: 2;
+  column-gap: 12px;
 }
-.animate-float { animation: float 6s ease-in-out infinite; }
+@media (min-width: 640px) {
+  .col-gallery { column-count: 3; }
+}
+@media (min-width: 1024px) {
+  .col-gallery { column-count: 4; }
+}
+@media (min-width: 1280px) {
+  .col-gallery { column-count: 5; }
+}
+.col-gallery > * {
+  display: block;
+  margin-bottom: 12px;
+  break-inside: avoid;
+}
 
-@keyframes pulseSoft {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+/* Marquee for trust strip */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-.animate-pulse-soft { animation: pulseSoft 2.5s ease-in-out infinite; }
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+.animate-marquee-slow {
+  animation: marquee 60s linear infinite;
+}
+
+/* Fade in on load */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeup {
+  animation: fadeUp 0.6s ease-out both;
+}
+
+/* Reset link styles, we apply ours via Tailwind */
+a { color: inherit; text-decoration: none; }
+
+/* Smooth image entrance */
+img { content-visibility: auto; }

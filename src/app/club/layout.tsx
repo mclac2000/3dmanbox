@@ -1,12 +1,12 @@
-import { ClubHeader } from "@/components/shared/ClubHeader";
-import { ClubFooter } from "@/components/shared/ClubFooter";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export default function ClubLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <ClubHeader />
+      <SiteHeader context="club" />
       <main className="flex-1">{children}</main>
-      <ClubFooter />
+      <SiteFooter />
     </>
   );
 }

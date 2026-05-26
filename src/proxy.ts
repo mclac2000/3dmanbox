@@ -1,28 +1,19 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const CLUB_HOSTS = new Set([
-  "3dman.club",
-  "www.3dman.club",
-  "club.localhost",
-]);
-
-const BOX_HOSTS = new Set([
-  "3dmanbox.com",
-  "www.3dmanbox.com",
-  "box.localhost",
-]);
+// 3dman.club routes rewrite to /club/* so they get the club layout.
+// 3dmanbox.com stays on the root tree (new design).
+const CLUB_HOSTS = new Set(["3dman.club", "www.3dman.club", "club.localhost"]);
 
 export function proxy(request: NextRequest) {
-  const host = (request.headers.get("host") || "").toLowerCase();
+  const host = (request.headers.get("host") || "").toLowerCase().split(":")[0];
   const url = request.nextUrl.clone();
   const path = url.pathname;
 
-  // Don't rewrite API routes or static assets
+  // Skip API, static assets, and routes that already explicitly target /club
   if (
     path.startsWith("/api") ||
     path.startsWith("/_next") ||
-    path.startsWith("/box") ||
     path.startsWith("/club") ||
     path.includes(".")
   ) {
@@ -31,11 +22,6 @@ export function proxy(request: NextRequest) {
 
   if (CLUB_HOSTS.has(host)) {
     url.pathname = `/club${path === "/" ? "" : path}`;
-    return NextResponse.rewrite(url);
-  }
-
-  if (BOX_HOSTS.has(host)) {
-    url.pathname = `/box${path === "/" ? "" : path}`;
     return NextResponse.rewrite(url);
   }
 

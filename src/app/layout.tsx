@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { getLocale, getDict } from "@/lib/i18n";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -8,30 +9,48 @@ const inter = Inter({
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const grotesk = Space_Grotesk({
+  variable: "--font-grotesk",
   subsets: ["latin"],
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "3D Man Box — Premium 3D-Charaktere für Business-Visuals",
-    template: "%s | 3D Man Box",
-  },
-  description:
-    "1.000+ premium 3D-Charaktere für Präsentationen, Webseiten und Marketing — unbegrenzt einsetzbar, einmal zahlen.",
-  metadataBase: new URL("https://3dmanbox.com"),
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const dict = await getDict(locale);
+  return {
+    title: { default: dict.meta.title, template: "%s · 3D Man Box" },
+    description: dict.meta.description,
+    metadataBase: new URL("https://3dmanbox.com"),
+    alternates: {
+      languages: {
+        en: "/?lang=en",
+        de: "/?lang=de",
+        es: "/?lang=es",
+        fr: "/?lang=fr",
+        pt: "/?lang=pt",
+      },
+    },
+    openGraph: {
+      title: dict.meta.title,
+      description: dict.meta.description,
+      images: ["/gallery/business/01-man-taking-a-risk.webp"],
+      type: "website",
+    },
+  };
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
   return (
-    <html lang="de" className={`${inter.variable} ${fraunces.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased">{children}</body>
+    <html lang={locale} className={`${inter.variable} ${grotesk.variable} h-full`}>
+      <body className="min-h-full flex flex-col antialiased bg-white text-zinc-950">
+        {children}
+      </body>
     </html>
   );
 }

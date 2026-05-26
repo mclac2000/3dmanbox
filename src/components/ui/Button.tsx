@@ -1,77 +1,70 @@
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import type { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "react";
 
-type Variant = "gold" | "navy" | "outline" | "ghost";
-type Size = "sm" | "md" | "lg" | "xl";
-
-type CommonProps = {
-  variant?: Variant;
-  size?: Size;
-  className?: string;
-  children: React.ReactNode;
-  fullWidth?: boolean;
-};
-
-const base =
-  "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+type Variant = "primary" | "ghost" | "outline" | "accent";
+type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
-  gold:
-    "bg-gold-shine text-navy-900 hover:shadow-[var(--shadow-glow)] hover:-translate-y-0.5 focus-visible:ring-gold-400",
-  navy:
-    "bg-navy-800 text-white hover:bg-navy-700 hover:-translate-y-0.5 focus-visible:ring-navy-500",
-  outline:
-    "border-2 border-navy-800 text-navy-800 hover:bg-navy-800 hover:text-white focus-visible:ring-navy-500",
-  ghost:
-    "text-navy-800 hover:bg-navy-50 focus-visible:ring-navy-300",
+  primary: "bg-zinc-950 text-white hover:bg-zinc-800 active:bg-zinc-900",
+  ghost: "bg-transparent text-zinc-700 hover:bg-zinc-100",
+  outline: "bg-white text-zinc-950 border border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50",
+  accent: "bg-accent-300 text-zinc-950 hover:bg-accent-400 active:bg-accent-500 shadow-[0_0_0_1px_rgba(0,0,0,0.04)]",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "h-9 px-4 text-sm",
-  md: "h-11 px-6 text-[15px]",
-  lg: "h-13 px-7 text-base",
-  xl: "h-16 px-10 text-lg",
+  sm: "px-3 py-1.5 text-xs font-medium",
+  md: "px-4 py-2.5 text-sm font-semibold",
+  lg: "px-6 py-3.5 text-base font-semibold",
 };
 
-function classes(props: CommonProps) {
-  return cn(
-    base,
-    variants[props.variant ?? "gold"],
-    sizes[props.size ?? "lg"],
-    props.fullWidth && "w-full",
-    props.className,
-  );
+function classes(variant: Variant, size: Size, extra?: string) {
+  return [
+    "inline-flex items-center justify-center gap-2 rounded-full transition",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-offset-2",
+    variants[variant],
+    sizes[size],
+    extra ?? "",
+  ].join(" ");
 }
 
-export function Button(
-  props: CommonProps & React.ButtonHTMLAttributes<HTMLButtonElement>,
-) {
-  const { variant, size, fullWidth, className, children, ...rest } = props;
+export function Button({
+  variant = "primary",
+  size = "md",
+  className,
+  children,
+  ...rest
+}: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant; size?: Size; children: ReactNode }) {
   return (
-    <button className={classes({ variant, size, fullWidth, className, children })} {...rest}>
+    <button className={classes(variant, size, className)} {...rest}>
       {children}
     </button>
   );
 }
 
-export function ButtonLink(
-  props: CommonProps & { href: string; external?: boolean },
-) {
-  const { variant, size, fullWidth, className, children, href, external } = props;
+export function ButtonLink({
+  href,
+  variant = "primary",
+  size = "md",
+  className,
+  children,
+  external,
+  ...rest
+}: AnchorHTMLAttributes<HTMLAnchorElement> & {
+  href: string;
+  variant?: Variant;
+  size?: Size;
+  children: ReactNode;
+  external?: boolean;
+}) {
   if (external) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        className={classes({ variant, size, fullWidth, className, children })}
-      >
+      <a href={href} className={classes(variant, size, className)} {...rest}>
         {children}
       </a>
     );
   }
   return (
-    <Link href={href} className={classes({ variant, size, fullWidth, className, children })}>
+    <Link href={href} className={classes(variant, size, className)}>
       {children}
     </Link>
   );

@@ -1,0 +1,200 @@
+{
+  "slug": "travel",
+  "title": "Travel",
+  "accent": "#f59e0b",
+  "count": 48,
+  "images": [
+    {
+      "file": "01-reisen-und-kultur-1026.webp",
+      "title": "reisen und kultur 1026"
+    },
+    {
+      "file": "02-reisen-und-kultur-1184.webp",
+      "title": "reisen und kultur 1184"
+    },
+    {
+      "file": "03-reisen-und-kultur-1108.webp",
+      "title": "reisen und kultur 1108"
+    },
+    {
+      "file": "04-hotels-und-gastronomie-1218.webp",
+      "title": "hotels und gastronomie 1218"
+    },
+    {
+      "file": "05-reisen-und-kultur-1250.webp",
+      "title": "reisen und kultur 1250"
+    },
+    {
+      "file": "06-reisen-und-kultur-1133.webp",
+      "title": "reisen und kultur 1133"
+    },
+    {
+      "file": "07-reisen-und-kultur-1014.webp",
+      "title": "reisen und kultur 1014"
+    },
+    {
+      "file": "08-hotels-und-gastronomie-1107.webp",
+      "title": "hotels und gastronomie 1107"
+    },
+    {
+      "file": "09-reisen-und-kultur-1201.webp",
+      "title": "reisen und kultur 1201"
+    },
+    {
+      "file": "10-reisen-und-kultur-1083.webp",
+      "title": "reisen und kultur 1083"
+    },
+    {
+      "file": "11-reisen-und-kultur-1205.webp",
+      "title": "reisen und kultur 1205"
+    },
+    {
+      "file": "12-reisen-und-kultur-1264.webp",
+      "title": "reisen und kultur 1264"
+    },
+    {
+      "file": "13-hotels-und-gastronomie-1198.webp",
+      "title": "hotels und gastronomie 1198"
+    },
+    {
+      "file": "14-reisen-und-kultur-1118.webp",
+      "title": "reisen und kultur 1118"
+    },
+    {
+      "file": "15-hotels-und-gastronomie-1192.webp",
+      "title": "hotels und gastronomie 1192"
+    },
+    {
+      "file": "16-reisen-und-kultur-1246.webp",
+      "title": "reisen und kultur 1246"
+    },
+    {
+      "file": "17-reisen-und-kultur-1225.webp",
+      "title": "reisen und kultur 1225"
+    },
+    {
+      "file": "18-hotels-und-gastronomie-1061.webp",
+      "title": "hotels und gastronomie 1061"
+    },
+    {
+      "file": "19-reisen-und-kultur-1168.webp",
+      "title": "reisen und kultur 1168"
+    },
+    {
+      "file": "20-reisen-und-kultur-1219.webp",
+      "title": "reisen und kultur 1219"
+    },
+    {
+      "file": "21-hotels-und-gastronomie-1162.webp",
+      "title": "hotels und gastronomie 1162"
+    },
+    {
+      "file": "22-reisen-und-kultur-1016.webp",
+      "title": "reisen und kultur 1016"
+    },
+    {
+      "file": "23-reisen-und-kultur-1019.webp",
+      "title": "reisen und kultur 1019"
+    },
+    {
+      "file": "24-reisen-und-kultur-1170.webp",
+      "title": "reisen und kultur 1170"
+    },
+    {
+      "file": "25-reisen-und-kultur-1017.webp",
+      "title": "reisen und kultur 1017"
+    },
+    {
+      "file": "26-hotels-und-gastronomie-1224.webp",
+      "title": "hotels und gastronomie 1224"
+    },
+    {
+      "file": "27-reisen-und-kultur-1223.webp",
+      "title": "reisen und kultur 1223"
+    },
+    {
+      "file": "28-hotels-und-gastronomie-1231.webp",
+      "title": "hotels und gastronomie 1231"
+    },
+    {
+      "file": "29-hotels-und-gastronomie-1058.webp",
+      "title": "hotels und gastronomie 1058"
+    },
+    {
+      "file": "30-reisen-und-kultur-1070.webp",
+      "title": "reisen und kultur 1070"
+    },
+    {
+      "file": "31-reisen-und-kultur-1154.webp",
+      "title": "reisen und kultur 1154"
+    },
+    {
+      "file": "32-reisen-und-kultur-1089.webp",
+      "title": "reisen und kultur 1089"
+    },
+    {
+      "file": "33-reisen-und-kultur-1149.webp",
+      "title": "reisen und kultur 1149"
+    },
+    {
+      "file": "34-reisen-und-kultur-1232.webp",
+      "title": "reisen und kultur 1232"
+    },
+    {
+      "file": "35-reisen-und-kultur-1162.webp",
+      "title": "reisen und kultur 1162"
+    },
+    {
+      "file": "36-reisen-und-kultur-1063.webp",
+      "title": "reisen und kultur 1063"
+    },
+    {
+      "file": "37-reisen-und-kultur-1128.webp",
+      "title": "reisen und kultur 1128"
+    },
+    {
+      "file": "38-hotels-und-gastronomie-1075.webp",
+      "title": "hotels und gastronomie 1075"
+    },
+    {
+      "file": "39-reisen-und-kultur-1217.webp",
+      "title": "reisen und kultur 1217"
+    },
+    {
+      "file": "40-reisen-und-kultur-1173.webp",
+      "title": "reisen und kultur 1173"
+    },
+    {
+      "file": "41-hotels-und-gastronomie-1036.webp",
+      "title": "hotels und gastronomie 1036"
+    },
+    {
+      "file": "42-hotels-und-gastronomie-1099.webp",
+      "title": "hotels und gastronomie 1099"
+    },
+    {
+      "file": "43-reisen-und-kultur-1198.webp",
+      "title": "reisen und kultur 1198"
+    },
+    {
+      "file": "44-hotels-und-gastronomie-1209.webp",
+      "title": "hotels und gastronomie 1209"
+    },
+    {
+      "file": "45-hotels-und-gastronomie-1222.webp",
+      "title": "hotels und gastronomie 1222"
+    },
+    {
+      "file": "46-reisen-und-kultur-1084.webp",
+      "title": "reisen und kultur 1084"
+    },
+    {
+      "file": "47-reisen-und-kultur-1265.webp",
+      "title": "reisen und kultur 1265"
+    },
+    {
+      "file": "48-reisen-und-kultur-1124.webp",
+      "title": "reisen und kultur 1124"
+    }
+  ]
+}

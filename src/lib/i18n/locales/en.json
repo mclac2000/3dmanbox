@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "title": "3D Man Box — 15,000+ Premium 3D Character Visuals",
+    "description": "The largest pack of 3D character renders for presentations, websites, marketing & social. Royalty-free. Used by 2,300+ creators in 38 countries."
+  },
+  "nav": {
+    "gallery": "Gallery",
+    "categories": "Categories",
+    "pricing": "Pricing",
+    "club": "Club",
+    "tryAi": "Try the AI",
+    "donate": "Donate",
+    "login": "Sign in",
+    "menu": "Menu"
+  },
+  "hero": {
+    "badge": "15,000+ renders · royalty-free · instant download",
+    "title": "The world's largest pack of 3D character visuals.",
+    "titleAccent": "Stop searching. Start shipping.",
+    "subtitle": "If you found us through Pixabay — welcome. This is the full collection: 15,000 high-resolution 3D characters across 10 categories, ready for your decks, sites and ads.",
+    "ctaPrimary": "See the gallery",
+    "ctaSecondary": "Try the AI free",
+    "stats": {
+      "renders": "renders",
+      "categories": "categories",
+      "creators": "creators trust us",
+      "countries": "countries"
+    }
+  },
+  "categories": {
+    "title": "10 categories. Pick one — or get them all.",
+    "subtitle": "Every category is a stand-alone download. Browse, then decide.",
+    "viewAll": "View all images",
+    "imagesIn": "images in",
+    "buy": "Buy this box",
+    "names": {
+      "business": "Business",
+      "sport": "Sport",
+      "wellness": "Wellness",
+      "family": "Family",
+      "travel": "Travel",
+      "food": "Food",
+      "events": "Events",
+      "tech": "Tech",
+      "education": "Education",
+      "animals": "Animals"
+    },
+    "descriptions": {
+      "business": "Executives, sales, finance, meetings — the language of work.",
+      "sport": "Players, training, gear, victory poses.",
+      "wellness": "Health, mindfulness, fitness, balance.",
+      "family": "Parents, kids, couples, celebrations.",
+      "travel": "Tourism, hotels, transport, adventure.",
+      "food": "Cooking, dining, groceries, beverages.",
+      "events": "Conferences, parties, holidays, performances.",
+      "tech": "Computers, software, AI, social media.",
+      "education": "Students, teaching, books, language.",
+      "animals": "Pets, wildlife, farm — animals everywhere."
+    }
+  },
+  "gallery": {
+    "title": "The gallery",
+    "subtitle": "Pick a category to see every image.",
+    "back": "← Back to all categories",
+    "buyCta": "Get the {category} box — {price}",
+    "showAll": "Show all {count}",
+    "loadMore": "Load more"
+  },
+  "try": {
+    "title": "Generate a 3D character with AI.",
+    "subtitle": "One free try, no signup. Type what you need. Download requires a Club account.",
+    "promptLabel": "Describe your character",
+    "promptPlaceholder": "A friendly 3D character holding a laptop, smiling",
+    "generate": "Generate",
+    "generating": "Generating…",
+    "result": "Your image",
+    "downloadNeedsClub": "Download requires a Club membership",
+    "joinClub": "Join the Club to download",
+    "tryAgain": "Try another prompt",
+    "limitReached": "You've used your free try. Join the Club for unlimited generations.",
+    "error": "Something went wrong. Try again in a moment."
+  },
+  "value": {
+    "title": "Why creators choose 3D Man Box",
+    "items": {
+      "scale": {
+        "title": "15,000+ ready renders",
+        "body": "More than any other 3D character pack on the market. No more endless searching."
+      },
+      "royaltyFree": {
+        "title": "Royalty-free, forever",
+        "body": "Pay once. Use on any project, commercial or personal. No subscription traps."
+      },
+      "hiRes": {
+        "title": "8K source files",
+        "body": "Every render is 8000 × 8000 PNG with transparency. Scale anywhere, never blur."
+      },
+      "ai": {
+        "title": "AI generator included",
+        "body": "Stuck without the right pose? Generate custom variations on-demand."
+      },
+      "support": {
+        "title": "60-day money-back",
+        "body": "Try the entire pack risk-free. Not blown away? Full refund, no questions."
+      },
+      "instant": {
+        "title": "Instant download",
+        "body": "Pay → download. No waiting. Files mirrored across 3 CDNs for speed."
+      }
+    }
+  },
+  "donate": {
+    "title": "Like what we do?",
+    "body": "Many of you found us via Pixabay's free downloads. If our work helps you, a small donation keeps the library growing.",
+    "amounts": ["3", "9", "27", "99"],
+    "custom": "Custom amount",
+    "cta": "Donate {amount}€",
+    "thanks": "Thank you! Every contribution funds the next batch of renders."
+  },
+  "pricing": {
+    "title": "Two ways to get the renders",
+    "subtitle": "Buy the static pack once. Add AI credits if you want infinite custom variations.",
+    "static": "Static pack",
+    "ai": "AI Club",
+    "perMonth": "/mo",
+    "oneTime": "one-time",
+    "popular": "Most popular",
+    "masterTitle": "Master Box",
+    "masterTagline": "All 15,000+ renders · 10 categories · lifetime",
+    "buyMaster": "Get the Master Box",
+    "buyCategory": "Get this category",
+    "joinClub": "Join the Club",
+    "categoryBoxes": "Or buy categories individually",
+    "vatNote": "Prices include VAT where applicable."
+  },
+  "footer": {
+    "tagline": "The largest 3D character library on the internet.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "links": {
+      "gallery": "Gallery",
+      "pricing": "Pricing",
+      "tryAi": "AI generator",
+      "club": "Membership",
+      "donate": "Donate",
+      "about": "About",
+      "contact": "Contact",
+      "imprint": "Imprint",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "fromPixabay": "Discovered us on Pixabay? Get the full collection here.",
+    "rights": "© 3D Man Box. All renders © Hero Dreams LLC."
+  },
+  "club": {
+    "heroTitle": "The Club: AI-powered 3D characters on tap.",
+    "heroSubtitle": "Already own the Box? Upgrade to infinite custom variations with our LoRA-trained AI.",
+    "heroCta": "Start free trial"
+  },
+  "common": {
+    "loading": "Loading…",
+    "soon": "Coming soon",
+    "free": "Free"
+  }
+}

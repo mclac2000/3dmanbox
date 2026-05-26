@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "title": "3D Man Box — 15 000+ personnages 3D premium",
+    "description": "La plus grande bibliothèque de personnages 3D pour présentations, sites web, marketing et social. Libre de droits. 2 300+ créateurs dans 38 pays."
+  },
+  "nav": {
+    "gallery": "Galerie",
+    "categories": "Catégories",
+    "pricing": "Tarifs",
+    "club": "Club",
+    "tryAi": "Tester l'IA",
+    "donate": "Faire un don",
+    "login": "Connexion",
+    "menu": "Menu"
+  },
+  "hero": {
+    "badge": "15 000+ rendus · libres de droits · téléchargement immédiat",
+    "title": "La plus grande bibliothèque de personnages 3D du web.",
+    "titleAccent": "Arrêtez de chercher. Commencez à publier.",
+    "subtitle": "Vous nous avez découvert sur Pixabay ? Bienvenue. Voici la collection complète : 15 000 rendus 3D haute résolution, 10 catégories, prêts pour vos slides, sites et publicités.",
+    "ctaPrimary": "Voir la galerie",
+    "ctaSecondary": "Tester l'IA gratuitement",
+    "stats": {
+      "renders": "rendus",
+      "categories": "catégories",
+      "creators": "créateurs nous font confiance",
+      "countries": "pays"
+    }
+  },
+  "categories": {
+    "title": "10 catégories. Choisissez-en une — ou prenez-les toutes.",
+    "subtitle": "Chaque catégorie est un téléchargement à part. Parcourez, puis décidez.",
+    "viewAll": "Voir toutes les images",
+    "imagesIn": "images dans",
+    "buy": "Acheter cette box",
+    "names": {
+      "business": "Business", "sport": "Sport", "wellness": "Bien-être", "family": "Famille",
+      "travel": "Voyage", "food": "Cuisine", "events": "Événements", "tech": "Tech",
+      "education": "Éducation", "animals": "Animaux"
+    },
+    "descriptions": {
+      "business": "Cadres, ventes, finance, réunions — le langage du travail.",
+      "sport": "Joueurs, entraînement, équipement, victoire.",
+      "wellness": "Santé, mindfulness, fitness, équilibre.",
+      "family": "Parents, enfants, couples, célébrations.",
+      "travel": "Tourisme, hôtels, transport, aventure.",
+      "food": "Cuisine, repas, courses, boissons.",
+      "events": "Conférences, fêtes, vacances, spectacles.",
+      "tech": "Ordinateurs, logiciels, IA, réseaux sociaux.",
+      "education": "Élèves, enseignement, livres, langues.",
+      "animals": "Animaux domestiques, sauvages, ferme."
+    }
+  },
+  "gallery": {
+    "title": "La galerie",
+    "subtitle": "Choisissez une catégorie pour voir toutes les images.",
+    "back": "← Retour aux catégories",
+    "buyCta": "Obtenir la box {category} — {price}",
+    "showAll": "Tout afficher ({count})",
+    "loadMore": "Charger plus"
+  },
+  "try": {
+    "title": "Générez un personnage 3D avec l'IA.",
+    "subtitle": "Un essai gratuit, sans inscription. Décrivez ce qu'il vous faut. Téléchargement réservé aux membres du Club.",
+    "promptLabel": "Décrivez votre personnage",
+    "promptPlaceholder": "Un personnage 3D sympathique tenant un ordinateur portable, souriant",
+    "generate": "Générer",
+    "generating": "Génération…",
+    "result": "Votre image",
+    "downloadNeedsClub": "Téléchargement réservé aux membres",
+    "joinClub": "Rejoignez le Club pour télécharger",
+    "tryAgain": "Essayer un autre prompt",
+    "limitReached": "Essai gratuit utilisé. Rejoignez le Club pour des générations illimitées.",
+    "error": "Erreur. Réessayez dans un instant."
+  },
+  "value": {
+    "title": "Pourquoi les créateurs choisissent 3D Man Box",
+    "items": {
+      "scale": { "title": "15 000+ rendus prêts", "body": "Plus que n'importe quel autre pack du marché." },
+      "royaltyFree": { "title": "Libre de droits, à vie", "body": "Payez une fois. Utilisez partout, commercial ou perso." },
+      "hiRes": { "title": "Fichiers 8K", "body": "Chaque rendu : 8000 × 8000 PNG avec transparence." },
+      "ai": { "title": "Générateur IA inclus", "body": "Pas la bonne pose ? Générez à la demande." },
+      "support": { "title": "60 jours satisfait ou remboursé", "body": "Essayez sans risque. Pas convaincu ? Remboursement total." },
+      "instant": { "title": "Téléchargement immédiat", "body": "Payez → téléchargez. Aucune attente. 3 CDN." }
+    }
+  },
+  "donate": {
+    "title": "Vous aimez ce qu'on fait ?",
+    "body": "Beaucoup nous ont trouvés via les téléchargements gratuits de Pixabay. Un petit don fait grandir la bibliothèque.",
+    "amounts": ["3", "9", "27", "99"],
+    "custom": "Montant libre",
+    "cta": "Donner {amount}€",
+    "thanks": "Merci ! Chaque contribution finance la prochaine vague de rendus."
+  },
+  "pricing": {
+    "title": "Deux manières d'obtenir les rendus",
+    "subtitle": "Achetez le pack statique. Ajoutez des crédits IA pour des variations à l'infini.",
+    "static": "Pack statique", "ai": "AI Club",
+    "perMonth": "/mois", "oneTime": "paiement unique", "popular": "Le plus populaire",
+    "masterTitle": "Master Box", "masterTagline": "Tous les rendus · 10 catégories · à vie",
+    "buyMaster": "Prendre la Master Box", "buyCategory": "Prendre cette catégorie",
+    "joinClub": "Rejoindre le Club", "categoryBoxes": "Ou acheter par catégorie",
+    "vatNote": "Prix TTC le cas échéant."
+  },
+  "footer": {
+    "tagline": "La plus grande bibliothèque 3D du web.",
+    "product": "Produit", "company": "Entreprise", "legal": "Légal",
+    "links": {
+      "gallery": "Galerie", "pricing": "Tarifs", "tryAi": "Générateur IA", "club": "Membres",
+      "donate": "Don", "about": "À propos", "contact": "Contact",
+      "imprint": "Mentions légales", "privacy": "Confidentialité", "terms": "CGV"
+    },
+    "fromPixabay": "Vous nous avez trouvés sur Pixabay ? Toute la collection ici.",
+    "rights": "© 3D Man Box. Tous les rendus © Hero Dreams LLC."
+  },
+  "club": {
+    "heroTitle": "Le Club : personnages 3D par IA à la demande.",
+    "heroSubtitle": "Vous avez déjà la Box ? Passez aux variations illimitées avec notre IA LoRA.",
+    "heroCta": "Essayer gratuitement"
+  },
+  "common": { "loading": "Chargement…", "soon": "Bientôt", "free": "Gratuit" }
+}

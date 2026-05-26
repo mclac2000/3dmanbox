@@ -1,0 +1,200 @@
+{
+  "slug": "education",
+  "title": "Education",
+  "accent": "#8b5cf6",
+  "count": 48,
+  "images": [
+    {
+      "file": "01-men-holding-a-pencil.webp",
+      "title": "men holding a pencil"
+    },
+    {
+      "file": "02-man-pushing-o-umlaut.webp",
+      "title": "man pushing o umlaut"
+    },
+    {
+      "file": "03-sprachen-1031.webp",
+      "title": "sprachen 1031"
+    },
+    {
+      "file": "04-sprachen-1013.webp",
+      "title": "sprachen 1013"
+    },
+    {
+      "file": "05-man-leaning-on-a-umlaut.webp",
+      "title": "man leaning on a umlaut"
+    },
+    {
+      "file": "06-first-school-day-and-kids-with-german-ei.webp",
+      "title": "first school day and kids with german ei"
+    },
+    {
+      "file": "07-happy-about-primary-school-beginning-and.webp",
+      "title": "happy about primary school beginning and"
+    },
+    {
+      "file": "08-first-school-day-and-kids-with-german-ye.webp",
+      "title": "first school day and kids with german ye"
+    },
+    {
+      "file": "09-board-with-letters-bildung-4.webp",
+      "title": "board with letters bildung 4"
+    },
+    {
+      "file": "10-question-mark-png.webp",
+      "title": "question mark png"
+    },
+    {
+      "file": "11-pupil-sitting-on-klasse-letters.webp",
+      "title": "pupil sitting on klasse letters"
+    },
+    {
+      "file": "12-first-class.webp",
+      "title": "first class"
+    },
+    {
+      "file": "13-schulanfang-letters-and-pupil-with-a-con.webp",
+      "title": "schulanfang letters and pupil with a con"
+    },
+    {
+      "file": "14-man-leaning-on-information-sign.webp",
+      "title": "man leaning on information sign"
+    },
+    {
+      "file": "15-man-standing-on-letter-o.webp",
+      "title": "man standing on letter o"
+    },
+    {
+      "file": "16-man-sliding-letter-j.webp",
+      "title": "man sliding letter j"
+    },
+    {
+      "file": "17-schulanfang-letters-golden-2.webp",
+      "title": "schulanfang letters golden 2"
+    },
+    {
+      "file": "18-thinking-about-the-solution.webp",
+      "title": "thinking about the solution"
+    },
+    {
+      "file": "19-men-arraging-boxes.webp",
+      "title": "men arraging boxes"
+    },
+    {
+      "file": "20-watering-the-new-plants-in-february.webp",
+      "title": "watering the new plants in february"
+    },
+    {
+      "file": "21-white-capital-letters-of-education.webp",
+      "title": "white capital letters of education"
+    },
+    {
+      "file": "22-students-with-blue-display.webp",
+      "title": "students with blue display"
+    },
+    {
+      "file": "23-man-punshing-letter-c.webp",
+      "title": "man punshing letter c"
+    },
+    {
+      "file": "24-sitting-on-a-bank-at-first-day-of-school.webp",
+      "title": "sitting on a bank at first day of school"
+    },
+    {
+      "file": "25-jury-meaning.webp",
+      "title": "jury meaning"
+    },
+    {
+      "file": "26-man-balancing-the-alphabet.webp",
+      "title": "man balancing the alphabet"
+    },
+    {
+      "file": "27-golden-letters-schulanfang.webp",
+      "title": "golden letters schulanfang"
+    },
+    {
+      "file": "28-man-sliding-letter-j.webp",
+      "title": "man sliding letter j"
+    },
+    {
+      "file": "29-man-pulling-letter-t.webp",
+      "title": "man pulling letter t"
+    },
+    {
+      "file": "30-teacher-standing-beside-a-whiteboard.webp",
+      "title": "teacher standing beside a whiteboard"
+    },
+    {
+      "file": "31-man-sitting-on-question-mark.webp",
+      "title": "man sitting on question mark"
+    },
+    {
+      "file": "32-sprachen-1023.webp",
+      "title": "sprachen 1023"
+    },
+    {
+      "file": "33-number-7.webp",
+      "title": "number 7"
+    },
+    {
+      "file": "34-sprachen-1017.webp",
+      "title": "sprachen 1017"
+    },
+    {
+      "file": "35-white-and-plain-education-board-6.webp",
+      "title": "white and plain education board 6"
+    },
+    {
+      "file": "36-pemdulum-in-motion.webp",
+      "title": "pemdulum in motion"
+    },
+    {
+      "file": "37-read-a-book-with-glasses.webp",
+      "title": "read a book with glasses"
+    },
+    {
+      "file": "38-lower-case-z.webp",
+      "title": "lower case z"
+    },
+    {
+      "file": "39-start-the-school-way-by-bike-to-the-begi.webp",
+      "title": "start the school way by bike to the begi"
+    },
+    {
+      "file": "40-students-with-pink-display.webp",
+      "title": "students with pink display"
+    },
+    {
+      "file": "41-parents-bring-their-children-to-the-firs.webp",
+      "title": "parents bring their children to the firs"
+    },
+    {
+      "file": "42-man-upturned.webp",
+      "title": "man upturned"
+    },
+    {
+      "file": "43-handle-the-question-mark.webp",
+      "title": "handle the question mark"
+    },
+    {
+      "file": "44-man-lifting-number-7.webp",
+      "title": "man lifting number 7"
+    },
+    {
+      "file": "45-man-holding-a-question-mark.webp",
+      "title": "man holding a question mark"
+    },
+    {
+      "file": "46-reading-books.webp",
+      "title": "reading books"
+    },
+    {
+      "file": "47-white-and-plain-education-board-9.webp",
+      "title": "white and plain education board 9"
+    },
+    {
+      "file": "48-schulanfang-letters.webp",
+      "title": "schulanfang letters"
+    }
+  ]
+}
