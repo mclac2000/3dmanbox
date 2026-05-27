@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { getLocale, getDict } from "@/lib/i18n";
+import SupportChat from "@/components/ai-firma/SupportChat";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -50,6 +51,7 @@ export default async function RootLayout({
     <html lang={locale} className={`${inter.variable} ${grotesk.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased bg-white text-zinc-950">
         {children}
+        <SupportChat />
       </body>
     </html>
   );
