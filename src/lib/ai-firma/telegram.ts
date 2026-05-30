@@ -1,8 +1,11 @@
 // Telegram-Service: Mars-Bot direkt an Marco (Chat-ID 382863507).
+// DIRECT_ENABLED=false → alle Sends an CEO_CHAT_ID werden blockiert.
+// Aurelius übernimmt die konsolidierte Kommunikation.
 
 const TOKEN = process.env.TELEGRAM_MARS_TOKEN || "";
 const CEO_CHAT_ID = process.env.TELEGRAM_CEO_CHAT_ID || "382863507";
 const DEV_CHAT_ID = process.env.TELEGRAM_DEV_CHAT_ID || "";
+const DIRECT_ENABLED = process.env.TELEGRAM_DIRECT_ENABLED === "true"; // default: OFF
 
 export type TgInlineButton = { text: string; url?: string; callback_data?: string };
 
@@ -17,10 +20,16 @@ export async function send(
 ): Promise<{ ok: boolean; message_id?: number; error?: string }> {
   if (!TOKEN) return { ok: false, error: "TELEGRAM_MARS_TOKEN nicht gesetzt" };
 
+  // Aurelius-Cutover: direkte Nachrichten an Marco blockieren
   const chatId = opts.chat === "dev" ? DEV_CHAT_ID
     : opts.chat && opts.chat !== "ceo" ? opts.chat
     : CEO_CHAT_ID;
   if (!chatId) return { ok: false, error: "Keine chat_id für Telegram konfiguriert" };
+
+  // Block direct sends to CEO unless explicitly enabled
+  if (!DIRECT_ENABLED && chatId === CEO_CHAT_ID) {
+    return { ok: true, message_id: undefined, error: undefined };
+  }
 
   const body: Record<string, unknown> = {
     chat_id: chatId,
