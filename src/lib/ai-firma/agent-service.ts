@@ -54,7 +54,7 @@ export async function runAgent(input: RunAgentInput) {
   try {
     result = await runWithTools({
       model: agent.model || "claude-sonnet-4-6",
-      system: agent.system_prompt + "\n\nNutze Tools, wenn du Daten brauchst. Sei knapp und entscheidungsreif. Antworte auf Deutsch.",
+      system: agent.system_prompt + "\n\nNutze Tools, wenn du Daten brauchst. Sei knapp und entscheidungsreif. Antworte auf Deutsch.\n\nWICHTIG: Verwende IMMER korrekte deutsche Rechtschreibung mit echten Umlauten (ä, ö, ü) und ß. Schreibe NIEMALS ae statt ä, oe statt ö, ue statt ü oder ss statt ß.",
       messages,
       tools,
       maxRounds: input.maxRounds ?? 4,

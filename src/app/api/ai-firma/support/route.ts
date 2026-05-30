@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
       agentId = timAgent.id as number;
       const r = await runAgent({
         agent: timAgent,
-        task: `Antworte als Tim auf die letzte Kunden-Nachricht. Du-Form, knapp (max 4 Sätze), freundlich, hilfsbereit. Wenn du nicht weiterhilfst, kündige an dass du Marco informierst.\n\nDialog:\n${dialog}`,
+        task: `Antworte als Tim auf die letzte Kunden-Nachricht. Du-Form, knapp (max 4 Sätze), freundlich, hilfsbereit. Verwende korrekte deutsche Umlaute (ä, ö, ü, ß) — niemals ae/oe/ue/ss als Ersatz. Wenn du nicht weiterhilfst, kündige an dass du Marco informierst.\n\nDialog:\n${dialog}`,
         taskType: "support_reply",
         tools: [],
         maxRounds: 1,
