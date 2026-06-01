@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { verify } from "@/lib/ai-firma/hmac";
 import { sb } from "@/lib/ai-firma/db";
 import { send } from "@/lib/ai-firma/telegram";
+import { implementProposal } from "@/lib/ai-firma/implementation";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -45,6 +46,17 @@ export async function GET(req: NextRequest) {
 
   const verb = action === "approve" ? "✅ akzeptiert" : "❌ abgelehnt";
   await send(`Vorschlag #${id} — ${proposal.title} ${verb}.`);
+
+  // Auto-Implementation bei Genehmigung (async, blockiert nicht die Response)
+  if (action === "approve") {
+    implementProposal(id).then((r) => {
+      if (r.ok) {
+        send(`🔧 Vorschlag #${id} wurde automatisch umgesetzt. QA: ${r.qaOk ? "✅" : "⚠️"}`).catch(() => {});
+      } else {
+        send(`⚠️ Umsetzung #${id} fehlgeschlagen: ${r.log.slice(0, 200)}`).catch(() => {});
+      }
+    }).catch(() => {});
+  }
 
   return new NextResponse(
     `<html><head><meta charset="utf-8"><title>Erledigt</title>
