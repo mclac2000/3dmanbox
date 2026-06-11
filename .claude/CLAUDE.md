@@ -59,6 +59,16 @@ npm run dev           # localhost:3000 (Club-Routes via fallback)
 - A-Record für `3dman.club` + `www` → `204.168.189.74`
 - Proxy-Status: 🟧 Proxied (DDoS-Schutz, CDN)
 
+## RechtschreibWächter (KI-Firma Agent)
+Agent `rechtschreib` (Carla Sturm) prüft alle deutschen Inhalte auf Rechtschreibung.
+- **Intelligente Wort-Map** (`src/lib/ai-firma/spell-map.ts`): token-genaue Whitelist, NIE blind ue→ü. Geschützte Wörter (Steuer, neue, Feuer …) bleiben unberührt.
+- **Scanner** (`src/lib/ai-firma/spellcheck.ts`): Galerie (`public/gallery/**`), i18n (`de.json`), Komponenten (`.tsx`).
+- **Volle Korrektur-Rechte** für Galerie-JSON (Laufzeit-fs, sofort wirksam). i18n/Komponenten sind Build-gebündelt → Befunde gehen als Proposal an Marco.
+- **Tracking**: jede Korrektur in Tabelle `spelling_corrections` (Audit-Log).
+- **Cron alle 6h**: `curl -X POST "https://3dman.club/api/ai-firma/spellcheck?token=$AI_FIRMA_REPORT_TOKEN&push_telegram=1"`
+- **Test**: `bash scripts/run-spell-test.sh` (47 Asserts, inkl. False-Positive- & Schutz-Tests).
+- DB-Migration: `supabase/migrations/20260611_spelling_waechter.sql`.
+
 ## Phase 2 (später)
 - KI-Generator mit fal.ai LoRA (`/dashboard/generator`)
 - LoRA-Training Endpoint

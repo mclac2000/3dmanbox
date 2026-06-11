@@ -154,6 +154,7 @@ insert into public.ai_agents (slug, name, role, persona, system_prompt, is_avata
   ('lora_master',   'Mia Sanders',   'LoRA-Meister',        'KI-spezifisch, fal.ai-Profi, kostenoptimierend',                'Du bist Mia Sanders, LoRA-Meister. Überwache fal.ai-Kosten, optimiere LoRA-Settings, schlage Cost-per-Generation-Optimierungen vor.', false),
   ('gallery_curator', 'Felix Renner', 'Gallery-Kurator',    'ästhetisch, kuratierend, marken-tauglich',                      'Du bist Felix Renner, Gallery-Kurator. Wähle neue Hero-Bilder pro Kategorie, schlage Galerie-Updates vor.', false),
   ('template_ki',   'Sara Holm',     'Prompt-Bibliothekarin','strukturierend, prompt-engineering-affin',                    'Du bist Sara Holm, Prompt-Bibliothekarin. Pflege Prompt-Vorlagen pro Kategorie, baue neue auf Basis erfolgreicher Generations.', false),
+  ('rechtschreib',  'Carla Sturm',   'RechtschreibWächterin','akribisch, sprachsicher, unbestechlich bei Tippfehlern',      'Du bist Carla Sturm, RechtschreibWächterin von 3D Man Box. Du überwachst alle deutschen Inhalte (Galerie-Titel & -Beschreibungen, Produkt-Texte, Preset-Namen, i18n-Texte) auf korrekte deutsche Rechtschreibung. Du nutzt eine intelligente Wort-Map — niemals blinde ue→ü-Ersetzung. Galerie-Inhalte korrigierst du selbst (volle Rechte). Für i18n und Komponenten meldest du die Stellen via Proposal an Marco. Sei knapp, präzise und melde nur echte Fehler. Verwende selbst IMMER perfekte deutsche Rechtschreibung mit echten Umlauten (ä, ö, ü) und ß.', false),
   -- Avatare (Kundensicht)
   ('avatar_designer','Anna (Designerin)', 'Avatar — Kreative Designerin', 'kreativ, anspruchsvoll, visuell',                'Du bist Anna, 32, freischaffende Designerin. Du brauchst 3D-Figuren für Kunden-Pitches. Antworte aus deiner Perspektive: was würdest du dir wünschen, was nervt dich an der Plattform?', true),
   ('avatar_buyer',  'Tobias (Käufer)', 'Avatar — Asset-Käufer',          'preisbewusst, schnell, business-orientiert',         'Du bist Tobias, 41, Marketing-Lead. Du kaufst 3D-Assets en bloc. Antworte aus deiner Perspektive: ROI, Pakete, Lizenz.', true),
@@ -174,6 +175,25 @@ insert into public.ai_config (key, value) values
 on conflict (key) do nothing;
 
 -- ============================================================
+-- SPELLING CORRECTIONS (RechtschreibWächter — Audit-Log)
+-- ============================================================
+create table if not exists public.spelling_corrections (
+  id          bigserial primary key,
+  agent_id    bigint references public.ai_agents(id) on delete set null,
+  source      text not null,                 -- gallery | i18n | component
+  file        text not null,
+  location    text not null,
+  original    text not null,
+  suggestion  text not null,
+  rule        text not null,                 -- phrase | umlaut | typo
+  confidence  text not null default 'high',
+  status      text not null default 'applied', -- applied | proposed | reverted
+  created_at  timestamptz not null default now()
+);
+create index if not exists idx_spelling_corr_created on public.spelling_corrections (created_at desc);
+create index if not exists idx_spelling_corr_status on public.spelling_corrections (status, created_at desc);
+
+-- ============================================================
 -- RLS — alles ist Service-Role-only; das Admin-UI nutzt Service-Key.
 -- ============================================================
 alter table public.ai_agents       enable row level security;
@@ -184,4 +204,5 @@ alter table public.ai_config       enable row level security;
 alter table public.support_tickets enable row level security;
 alter table public.support_messages enable row level security;
 alter table public.fal_cost_events enable row level security;
+alter table public.spelling_corrections enable row level security;
 -- (Keine policies = Service-Role bypassed RLS, alles andere darf nichts. So gewollt.)

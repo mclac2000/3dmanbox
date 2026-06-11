@@ -1,7 +1,7 @@
 export type AgentSlug =
   | "ceo" | "cto" | "cmo" | "cro" | "support" | "analyst" | "qa"
   | "causality" | "guardian" | "lora_master" | "gallery_curator" | "template_ki"
-  | "avatar_designer" | "avatar_buyer" | "avatar_platform";
+  | "avatar_designer" | "avatar_buyer" | "avatar_platform" | "rechtschreib";
 
 export interface AgentRow {
   id: number;

@@ -1,0 +1,9 @@
+# RechtschreibWächter — alle 6h (00:10, 06:10, 12:10, 18:10).
+# Als root installieren (liest Token aus der Shared-Env, die nur root lesen darf):
+#   sudo crontab -e   → folgende Zeile einfügen
+#
+10 */6 * * * TOKEN=$(grep -m1 '^AI_FIRMA_REPORT_TOKEN=' /srv/3dmanbox/shared/.env | cut -d= -f2-); curl -fsS -X POST "http://localhost:3030/api/ai-firma/spellcheck?push_telegram=1" -H "x-ai-firma-token: $TOKEN" >> /var/log/3dmanbox-spellcheck.log 2>&1
+#
+# Manueller Test (gibt JSON zurück):
+#   TOKEN=$(sudo grep -m1 '^AI_FIRMA_REPORT_TOKEN=' /srv/3dmanbox/shared/.env | cut -d= -f2-)
+#   curl -fsS -X POST "http://localhost:3030/api/ai-firma/spellcheck" -H "x-ai-firma-token: $TOKEN" | jq .

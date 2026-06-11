@@ -20,6 +20,7 @@ const DEFAULT_TOOLS_PER_ROLE: Record<string, string[]> = {
   avatar_designer: ["create_proposal"],
   avatar_buyer:    ["create_proposal"],
   avatar_platform: ["create_proposal"],
+  rechtschreib:    ["scan_spelling", "apply_spelling_fixes", "create_proposal"],
 };
 
 export interface RunAgentInput {

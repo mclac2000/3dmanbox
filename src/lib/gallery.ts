@@ -45,3 +45,9 @@ export async function getCategory(slug: string): Promise<CategoryManifest | null
 export function imagePath(slug: string, file: string): string {
   return `/gallery/${slug}/${file}`;
 }
+
+/** Cache leeren — nach einer Korrektur durch den RechtschreibWächter. */
+export function clearGalleryCache(): void {
+  _overview = null;
+  _category.clear();
+}

@@ -160,6 +160,50 @@ export const TOOLS: ToolDef[] = [
     },
   },
   {
+    name: "scan_spelling",
+    description: "Durchsucht alle deutschen 3D-Man-Inhalte (Galerie-Titel/Beschreibungen, i18n-Texte, Komponenten) nach Rechtschreibfehlern mit der intelligenten Wort-Map. Liefert eine Befund-Liste — verändert nichts.",
+    input_schema: { type: "object", properties: {} },
+    handler: async () => {
+      const { scanAll } = await import("./spellcheck");
+      const r = await scanAll();
+      return {
+        scanned_files: r.scannedFiles,
+        total_findings: r.findings.length,
+        by_source: r.bySource,
+        sample: r.findings.slice(0, 25).map((f) => ({
+          source: f.source, file: f.file, location: f.location,
+          original: f.original, suggestion: f.suggestion, rule: f.rule,
+          auto: f.autoApplicable,
+        })),
+      };
+    },
+  },
+  {
+    name: "apply_spelling_fixes",
+    description: "Wendet alle auto-korrigierbaren Rechtschreibkorrekturen in den Galerie-Inhalten an (volle Schreibrechte). i18n- und Komponenten-Befunde werden NICHT automatisch geschrieben (Build-gebündelt) und sollten via create_proposal an Marco gemeldet werden. Trackt jede Korrektur im Audit-Log.",
+    input_schema: {
+      type: "object",
+      properties: { agent_slug: { type: "string", description: "Slug des ausführenden Agenten, default 'rechtschreib'." } },
+    },
+    handler: async (args) => {
+      const { scanAll, applyGalleryFixes, trackCorrections } = await import("./spellcheck");
+      const { getAgentBySlug } = await import("./db");
+      const agent = await getAgentBySlug(String(args.agent_slug || "rechtschreib"));
+      const before = await scanAll();
+      const galleryFindings = before.findings.filter((f) => f.autoApplicable);
+      const applied = await applyGalleryFixes();
+      if (agent) await trackCorrections(agent.id, galleryFindings, "applied");
+      return {
+        files_changed: applied.filesChanged,
+        corrections_applied: applied.corrections,
+        report_only: {
+          i18n: before.bySource.i18n,
+          component: before.bySource.component,
+        },
+      };
+    },
+  },
+  {
     name: "list_top_categories",
     description: "Top-Kategorien nach Generations-Volumen in Zeitfenster.",
     input_schema: {
