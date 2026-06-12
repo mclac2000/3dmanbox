@@ -97,13 +97,20 @@ async function qaVerify(
       + `**Titel:** ${proposal.title}\n`
       + `**Beschreibung:** ${proposal.description || "(keine)"}\n\n`
       + `**Umsetzungs-Log:**\n${implLog.slice(0, 2000)}\n\n`
-      + `Falls Probleme: erstelle via create_proposal einen neuen Vorschlag mit risk=high.`
-      + ` Falls alles ok: antworte mit "QA bestanden".`,
+      + `WICHTIG (Loop-Schutz, Lehre aus dem $104-QA-CTO-Loop): Erstelle KEINE neuen Vorschläge `
+      + `(kein create_proposal). Schreibe gefundene Probleme nur als kurzen Bericht — nur Marco `
+      + `entscheidet, ob ein Befund zu einem neuen Vorschlag wird.\n`
+      + `Falls Probleme: liste sie knapp auf. Falls alles ok: antworte mit "QA bestanden".`,
     taskType: "qa_verification",
   });
 
-  const ok = (result.text || "").toLowerCase().includes("bestanden")
-    || !(result.toolLog || []).some((t) => t.name === "create_proposal");
+  // Loop-Schutz (#9f): QA läuft pro Implementation genau EINMAL (inline) und darf keine
+  // Folge-Proposals erzeugen. Erzeugt der QA-Agent dennoch eins (Tool ignoriert Anweisung),
+  // werten wir das als NICHT bestanden — es triggert aber keine weitere QA-Runde.
+  const createdFollowUp = (result.toolLog || []).some((t) => t.name === "create_proposal");
+  const text = (result.text || "").toLowerCase();
+  const ok = !createdFollowUp && (text.includes("bestanden")
+    || (!text.includes("problem") && !text.includes("fehler") && !text.includes("kritisch")));
 
   return { ok, log: result.text.slice(0, 1000) };
 }
