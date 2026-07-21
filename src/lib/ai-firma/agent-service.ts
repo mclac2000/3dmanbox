@@ -3,6 +3,7 @@ import { runWithTools, calcCost } from "./llm";
 import { logActivity, getAgentBySlug } from "./db";
 import { pickTools, TOOL_NAMES } from "./tools";
 import type { AgentRow, LLMMessage } from "./types";
+import { ANTI_KI_STIL, shouldApplyAntiKiStil } from "./anti-ki-stil";
 
 const DEFAULT_TOOLS_PER_ROLE: Record<string, string[]> = {
   ceo:             ["get_kpis", "list_pending_proposals", "create_proposal"],
@@ -52,10 +53,12 @@ export async function runAgent(input: RunAgentInput) {
 
   let result;
   let errorMsg: string | undefined;
+  // Anti-KI-Schreibstil nur bei Laeufen, deren Text Menschen lesen.
+  const stilBlock = shouldApplyAntiKiStil(agent.slug, input.taskType) ? ANTI_KI_STIL : "";
   try {
     result = await runWithTools({
       model: agent.model || "claude-sonnet-4-6",
-      system: agent.system_prompt + "\n\nNutze Tools, wenn du Daten brauchst. Sei knapp und entscheidungsreif. Antworte auf Deutsch.\n\nWICHTIG: Verwende IMMER korrekte deutsche Rechtschreibung mit echten Umlauten (ä, ö, ü) und ß. Schreibe NIEMALS ae statt ä, oe statt ö, ue statt ü oder ss statt ß.",
+      system: agent.system_prompt + "\n\nNutze Tools, wenn du Daten brauchst. Sei knapp und entscheidungsreif. Antworte auf Deutsch.\n\nWICHTIG: Verwende IMMER korrekte deutsche Rechtschreibung mit echten Umlauten (ä, ö, ü) und ß. Schreibe NIEMALS ae statt ä, oe statt ö, ue statt ü oder ss statt ß." + stilBlock,
       messages,
       tools,
       maxRounds: input.maxRounds ?? 4,
